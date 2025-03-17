@@ -36,9 +36,9 @@ function App() {
             <Route path="*" element={<NoPage />} />
           </Routes>
         </BrowserRouter>
-        <div className="toggle">
+        {/* <div className="toggle">
           <ReactSwitch onChange={toggleTheme} checked={theme === "dark"} />
-        </div>
+        </div> */}
       </div>
     </ThemeContext.Provider>
   );

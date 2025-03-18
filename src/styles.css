@@ -10,6 +10,8 @@
 
 body {
   overflow: auto;
+  width: 100vw;
+  height: 100vh;
 }
 
 /* Home page Styling */
@@ -19,7 +21,6 @@ span {
 }
 
 .main-content {
-  width: 100%;
   margin-left: 200px;
 }
 
@@ -36,10 +37,11 @@ span {
   font-size: 42px;
   background-color: #f27601;
   color: #fcfcfc;
+  text-align: center;
 }
 
 .main-content .info {
-  width: auto;
+  width: 1000px;
 }
 
 .main-content .info h2 {

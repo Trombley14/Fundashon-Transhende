@@ -25,38 +25,33 @@ span {
 }
 
 .main-content .info {
-  margin-left: 50px;
+  margin-left: 40px;
   padding: 20px;
   line-height: 25px;
 }
 
 .main-header {
   padding: 20px;
-  margin-top: 25px;
-  margin-left: 50px;
+  margin: 25px 50px 15px;
   font-size: 42px;
   background-color: #f27601;
   color: #fcfcfc;
   text-align: center;
 }
 
-.main-content .info {
-  width: 1000px;
-}
-
 .main-content .info h2 {
   font-size: 30px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .main-content .info h3 {
   font-size: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .main-content .info p {
   font-size: 18px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 /* Theme Changer */
@@ -102,9 +97,8 @@ span {
 }
 
 .logo {
-  border-radius: 8px;
-  height: 75px;
-  width: 105px;
+  border-radius: 75px;
+  width: 125px;
 }
 
 .wrapper nav ul li {

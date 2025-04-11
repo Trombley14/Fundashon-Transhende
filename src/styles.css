@@ -10,14 +10,13 @@
 
 body {
   overflow: auto;
-  width: 100vw;
-  height: 100vh;
 }
 
 /* Home page Styling */
 
 span {
   font-weight: bold;
+  color: #f27601;
 }
 
 .main-content {
@@ -41,12 +40,15 @@ span {
 
 .main-content .info h2 {
   font-size: 30px;
+  font-weight: 400;
   margin-bottom: 10px;
 }
 
 .main-content .info h3 {
   font-size: 20px;
+  font-weight: 500;
   margin-bottom: 5px;
+  color: #035cd5;
 }
 
 .main-content .info p {

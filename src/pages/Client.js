@@ -4,7 +4,6 @@ function Client() {
   return (
     <>
       <Navbar />
-      <h1>Client</h1>
     </>
   );
 }

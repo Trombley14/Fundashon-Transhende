@@ -17,7 +17,7 @@ function CompanyIntake() {
             </div>
             <div className="input-group">
               <label htmlFor="kvk_number">KVK Number</label>
-              <input type="text" id="kvk_number" name="kvk_number" required />
+              <input type="number" id="kvk_number" name="kvk_number" required />
             </div>
           </div>
           <div className="input-row">
@@ -69,6 +69,8 @@ function CompanyIntake() {
           />
           <label htmlFor="notes">Notes</label>
           <textarea id="notes" name="notes" />
+
+          <button type="submit">Submit</button>
         </form>
       </div>
     </>

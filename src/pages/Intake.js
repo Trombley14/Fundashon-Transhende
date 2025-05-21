@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
-import ClientIntake from "../components/ClientIntake";
-import CompanyIntake from "../components/CompanyIntake";
+import FormSelector from "../components/FormSelector";
 
 function Intake() {
   const [formData, setFormData] = useState({
@@ -52,8 +51,7 @@ function Intake() {
   return (
     <>
       <Navbar />
-      <ClientIntake />
-      <CompanyIntake />
+      <FormSelector />
     </>
   );
 }

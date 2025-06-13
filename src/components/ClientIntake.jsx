@@ -39,7 +39,7 @@ function ClientIntake() {
             <div className="input-group">
               <label htmlFor="gender">Gender:</label>
               <select id="gender" name="gender" required>
-                <option value="">-- Please choose an option --</option>
+                <option value="">-- Choose a gender --</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
                 <option value="other">Other</option>

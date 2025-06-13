@@ -20,20 +20,21 @@ function FormSelector() {
   };
 
   return (
-    <div className="form-selector">
-      <h1>Choose a Form</h1>
-      <select
-        value={selectedForm}
-        onChange={(e) => setSelectedForm(e.target.value)}
-      >
-        <option value="">-- Select --</option>
-        <option value="client">Client Intake</option>
-        <option value="company">Company Intake</option>
-        <option value="rental">Rental Intake</option>
-      </select>
-
+    <>
+      <div className="form-selector">
+        <h1>Choose a Form</h1>
+        <select
+          value={selectedForm}
+          onChange={(e) => setSelectedForm(e.target.value)}
+        >
+          <option value="">-- Select --</option>
+          <option value="client">Client Intake</option>
+          <option value="company">Company Intake</option>
+          <option value="rental">Rental Intake</option>
+        </select>
+      </div>
       <div className="form-display">{renderForm()}</div>
-    </div>
+    </>
   );
 }
 

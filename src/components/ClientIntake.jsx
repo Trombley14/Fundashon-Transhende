@@ -46,8 +46,15 @@ function ClientIntake() {
               </select>
             </div>
           </div>
+          <label htmlFor="id">ID:</label>
+          <input type="number" id="id" name="id" required />
+
           <label htmlFor="district">District:</label>
           <input type="text" id="district" name="district" required />
+
+          <label htmlFor="Address">Address:</label>
+          <input type="text" id="Address" name="Address" required />
+
           <div className="input-row">
             <div className="input-group">
               <label htmlFor="telephone1">Telephone (1):</label>
@@ -58,6 +65,7 @@ function ClientIntake() {
               <input type="tel" id="telephone2" name="telephone2" />
             </div>
           </div>
+
           <label htmlFor="doctor">Doctor:</label>
           <input type="text" id="doctor" name="doctor" required />
 
@@ -65,20 +73,27 @@ function ClientIntake() {
           <select id="mobility" name="mobility" required>
             <option value="">-- Please choose an option --</option>
             <option value="laying-in-bed">Laying in bed</option>
-            <option value="">option 2</option>
-            <option value="">option 3</option>
+            <option value="walking">Walking</option>
+            <option value="walking-badly">Walking badly</option>
+            <option value="mobility-aid">Mobility aid</option>
+            <option value="wheelchair">Wheelchair</option>
           </select>
 
           <label htmlFor="insurance">Insurance:</label>
           <select id="insurance" name="insurance" required>
             <option value="">-- Please choose an option --</option>
             <option value="svb">SVB</option>
-            <option value="">Option 2</option>
-            <option value="">Option 3</option>
+            <option value="bvz">BVZ</option>
+            <option value="avbz">AVBZ</option>
+            <option value="particulier">Particulier</option>
+            <option value="eigen-beheer">Eigen beheer</option>
           </select>
 
           <label htmlFor="expiry_date">Expiry date:</label>
           <input type="date" id="expiry_date" name="expiry_date" required />
+
+          <label htmlFor="start_date">Start Date:</label>
+          <input type="date" id="start_date" name="start_date" required />
 
           <label htmlFor="details">Details:</label>
           <textarea id="details" name="details" rows="4" />

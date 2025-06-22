@@ -61,12 +61,10 @@ function CompanyIntake() {
               <input type="text" id="district" name="district" required />
             </div>
           </div>
-          <label htmlFor="invoice_reference">Invoice Reference/PO Number</label>
-          <input
-            type="number"
-            id="invoice_reference"
-            name="invoice_reference"
-          />
+
+          <label htmlFor="start_date">Start date:</label>
+          <input type="date" id="start_date" name="start_date" required />
+
           <label htmlFor="notes">Notes</label>
           <textarea id="notes" name="notes" />
 

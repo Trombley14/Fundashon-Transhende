@@ -19,19 +19,46 @@ function RentalIntake() {
                 type="text"
                 id="renter"
                 name="renter"
-                placeholder="Name"
+                placeholder="John Doe"
                 required
               />
             </div>
           </div>
+
           <div className="input-row">
             <div className="input-group">
-              <label htmlFor="department">Department/Role</label>
-              <select name="department" id="department" required>
-                <option value="">-- Please choose an option --</option>
-                <option value="option 1">Option 1</option>
-                <option value="option 2">Option 2</option>
-              </select>
+              <label htmlFor="id">Id:</label>
+              <input type="number" id="id" name="id" required />
+            </div>
+            <div className="input-group">
+              <label htmlFor="telephone_number">Telephone number:</label>
+              <input
+                type="tel"
+                id="telephone_number"
+                name="telephone_number"
+                required
+              />
+            </div>
+          </div>
+
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="johndoe@example.com"
+            required
+          />
+
+          <div className="input-row">
+            <div className="input-group">
+              <label htmlFor="company_name">Company Name</label>
+              <input
+                type="text"
+                name="company_name"
+                id="company_name"
+                required
+              />
             </div>
             <div className="input-group">
               <label htmlFor="date_of_request">Date of Request</label>
@@ -39,35 +66,22 @@ function RentalIntake() {
             </div>
           </div>
           <div className="input-row">
-            <div className="input-group">
-              <label htmlFor="rental_date">Rental Date(s)</label>
-              <input type="date" id="rental_date" name="rental_date" required />
-            </div>
-            <div className="input-group">
-              <label htmlFor="pick_up_and_return_time">
-                Pick-up & Return Time
-              </label>
-              <input
-                type="datetime-local"
-                id="pick_up_and_return_time"
-                name="pick_up_and_return_time"
-                required
-              />
-            </div>
+            <div className="input-group"></div>
           </div>
-          <label htmlFor="bus_number">Bus Number/Unit</label>
-          <input type="number" id="bus_number" name="bus_number" required />
+
           <label htmlFor="purpose_of_rental">Purpose of Rental</label>
           <textarea id="purpose_of_rental" name="purpose_of_rental" required />
-          <label htmlFor="number_of_people_expected">
-            Number of People Expected
+
+          <label htmlFor="number_of_passengers_expected">
+            Number of passengers Expected
           </label>
           <input
             type="number"
-            id="number_of_people_expected"
-            name="number_of_people_expected"
+            id="number_of_passengers_expected"
+            name="number_of_passengers_expected"
             required
           />
+
           <label htmlFor="location_of_use">Location(s) of Use</label>
           <input
             type="text"

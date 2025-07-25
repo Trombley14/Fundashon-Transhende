@@ -192,6 +192,48 @@ span {
   background-color: #0249aa;
 }
 
+/* Client Page */
+
+.main-content {
+  margin-left: 250px;
+}
+
+.client-table-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.client-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.client-table th,
+.client-table td {
+  padding: 12px 20px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.client-table th {
+  background-color: #f27601;
+  color: white;
+}
+
+.client-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.client-details {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
 /* Theme Changer */
 
 #light {

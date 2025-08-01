@@ -1,63 +1,90 @@
 import React from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const clients = [
   {
     id: 1,
     name: "John Doe",
+    id: "198721717",
+    address: "Maria 16",
     email: "john@example.com",
     phone: "123-4567",
   },
   {
     id: 2,
     name: "Karel Sint Jago",
+    id: "213312123",
+    address: "Tera 42",
     email: "karel@example.com",
     phone: "754-6543",
   },
   {
     id: 3,
     name: "Karina Smith",
+    id: "232131231",
+    address: "Hato 34",
     email: "karina@example.com",
     phone: "454-6543",
   },
   {
     id: 4,
     name: "Justin Smith",
+    id: "123224431",
+    address: "Barber 44",
     email: "justin@example.com",
     phone: "231-6543",
   },
-  { id: 5, name: "Kevin Smith", email: "jane@example.com", phone: "343-6543" },
+  {
+    id: 5,
+    name: "Kevin Smith",
+    id: "623728191",
+    address: "Souax 53",
+    email: "jane@example.com",
+    phone: "343-6543",
+  },
 ];
 
 function CLientList() {
   const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredClients = clients.filter((client) =>
+    client.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="main-content">
       <div className="client-table-container">
         <h2>Client Records</h2>
+        <input
+          type="text"
+          placeholder="Search by name"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          style={{
+            padding: "8px",
+            width: "250px",
+            marginBottom: "20px",
+            fontSize: "16px",
+          }}
+        />
         <table className="client-table">
           <thead>
             <tr>
-              <th>#</th>
               <th>Name</th>
-              <th>Email</th>
+              <th>ID</th>
+              <th>Adress</th>
               <th>Phone</th>
-              <th>View</th>
             </tr>
           </thead>
           <tbody>
-            {clients.map((client) => (
+            {filteredClients.map((client) => (
               <tr key={client.id}>
-                <td>{client.id}</td>
                 <td>{client.name}</td>
-                <td>{client.email}</td>
+                <td>{client.id}</td>
+                <td>{client.address}</td>
                 <td>{client.phone}</td>
-                <td>
-                  <button onClick={() => navigate(`/clients/${client.id}`)}>
-                    View
-                  </button>
-                </td>
               </tr>
             ))}
           </tbody>

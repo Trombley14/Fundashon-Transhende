@@ -204,6 +204,10 @@ span {
   padding: 20px;
 }
 
+.client-table-container h2 {
+  margin-bottom: 15px;
+}
+
 .client-table {
   width: 100%;
   border-collapse: collapse;

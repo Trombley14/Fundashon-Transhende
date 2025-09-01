@@ -1,0 +1,230 @@
+/* Sidebar width */
+:root {
+  --sidebar-width: 220px; /* adjust this to match your navbar width */
+}
+
+/* ====== Client Page Layout ====== */
+.client-page {
+  padding: 2rem;
+  margin-left: var(--sidebar-width); /* push content right */
+  max-width: calc(100% - var(--sidebar-width));
+  font-family: system-ui, sans-serif;
+  color: #222;
+}
+
+/* ====== Header ====== */
+.client-page__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.client-page__title h1 {
+  margin: 0.25rem 0;
+  font-size: 1.75rem;
+  font-weight: bold;
+}
+
+.link.link--back {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  color: #0077cc;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.link.link--back:hover {
+  text-decoration: underline;
+}
+
+/* ====== Meta & Badges ====== */
+.meta {
+  font-size: 0.85rem;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.meta__id {
+  font-weight: 500;
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  background: #aaa;
+  border-radius: 50%;
+}
+
+.badge {
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.badge--ok {
+  background: #e0f7ec;
+  color: #188a42;
+}
+.badge--muted {
+  background: #eee;
+  color: #666;
+}
+
+/* ====== Actions ====== */
+.client-page__actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.4rem;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.btn--primary {
+  background: #0077cc;
+  color: white;
+}
+.btn--primary:hover {
+  background: #005fa3;
+}
+.btn--outline {
+  border: 1px solid #0077cc;
+  background: white;
+  color: #0077cc;
+}
+.btn--outline:hover {
+  background: #f0f7ff;
+}
+.btn--danger {
+  background: #d9534f;
+  color: white;
+}
+.btn--danger:hover {
+  background: #b52b27;
+}
+
+/* ====== Summary Cards ====== */
+.summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.card {
+  background: white;
+  border-radius: 0.6rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+}
+.card__title {
+  margin: 0 0 0.75rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.card__body {
+  font-size: 0.95rem;
+}
+
+/* Key/Value pairs */
+.kv {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+}
+.kv span {
+  color: #555;
+}
+.kv strong {
+  color: #000;
+}
+
+/* Tags */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.tag {
+  background: #eee;
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+}
+.muted {
+  color: #777;
+  font-style: italic;
+}
+
+/* ====== Two-Column Layout ====== */
+.columns {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+}
+.col--main,
+.col--side {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Info Grid */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+.info dt {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #444;
+}
+.info dd {
+  margin-bottom: 5px;
+  color: #222;
+}
+.info--full {
+  grid-column: span 2;
+}
+
+/* ====== Lists ====== */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.list__item {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+.list__title {
+  font-weight: bold;
+}
+
+/* ====== Notes & Files ====== */
+.notes {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+.files {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.files li {
+  padding: 0.25rem 0;
+}
+
+/* ====== Footer ====== */
+.footer {
+  margin-top: 2rem;
+  text-align: right;
+  font-size: 0.8rem;
+  color: #666;
+}

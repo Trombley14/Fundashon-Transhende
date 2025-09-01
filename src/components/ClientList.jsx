@@ -6,52 +6,86 @@ const clients = [
   {
     id: 1,
     name: "John Doe",
-    id: "198721717",
+    idNumber: "198721717",
     address: "Maria 16",
     email: "john@example.com",
     phone: "123-4567",
+    dateOfBirth: "02/10/24",
+    gender: "Male",
+    doctor: "Wanner",
+    mobility: "Laying in bed",
+    insurance: "SVB",
+    details: "Welcome to Fundashon Transhende",
   },
   {
     id: 2,
     name: "Karel Sint Jago",
-    id: "213312123",
+    idNumber: "213312123",
     address: "Tera 42",
     email: "karel@example.com",
     phone: "754-6543",
+    dateOfBirth: "02/10/24",
+    gender: "Other",
+    doctor: "Wanner",
+    mobility: "Laying in bed",
+    insurance: "SVB",
+    details: "Welcome to Fundashon Transhende",
   },
   {
     id: 3,
     name: "Karina Smith",
-    id: "232131231",
+    idNumber: "232131231",
     address: "Hato 34",
     email: "karina@example.com",
     phone: "454-6543",
+    dateOfBirth: "02/10/24",
+    gender: "Female",
+    doctor: "Wanner",
+    mobility: "Laying in bed",
+    insurance: "SVB",
+    details: "Welcome to Fundashon Transhende",
   },
   {
     id: 4,
     name: "Justin Smith",
-    id: "123224431",
+    idNumber: "123224431",
     address: "Barber 44",
     email: "justin@example.com",
     phone: "231-6543",
+    dateOfBirth: "02/10/24",
+    gender: "Male",
+    doctor: "Wanner",
+    mobility: "Laying in bed",
+    insurance: "SVB",
+    details: "Welcome to Fundashon Transhende",
   },
   {
     id: 5,
     name: "Kevin Smith",
-    id: "623728191",
+    idNumber: "623728191",
     address: "Souax 53",
     email: "jane@example.com",
     phone: "343-6543",
+    dateOfBirth: "02/10/24",
+    gender: "Other",
+    doctor: "Wanner",
+    mobility: "Laying in bed",
+    insurance: "SVB",
+    details: "Welcome to Fundashon Transhende",
   },
 ];
 
-function CLientList() {
+function ClientList() {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
 
   const filteredClients = clients.filter((client) =>
     client.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  const handleRowClick = (client) => {
+    navigate(`/client/${client.id}`, { state: { client } });
+  };
 
   return (
     <div className="main-content">
@@ -80,9 +114,9 @@ function CLientList() {
           </thead>
           <tbody>
             {filteredClients.map((client) => (
-              <tr key={client.id}>
+              <tr onClick={() => handleRowClick(client)} key={client.id}>
                 <td>{client.name}</td>
-                <td>{client.id}</td>
+                <td>{client.idNumber}</td>
                 <td>{client.address}</td>
                 <td>{client.phone}</td>
               </tr>
@@ -94,4 +128,4 @@ function CLientList() {
   );
 }
 
-export default CLientList;
+export default ClientList;

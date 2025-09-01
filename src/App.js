@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Intake from "./pages/Intake";
 import Client from "./pages/Client";
+import ClientDetails from "./pages/ClientDetails";
 import Team from "./pages/Team";
 import Agenda from "./pages/Agenda";
 import Report from "./pages/Report";
@@ -29,6 +30,7 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/intake" element={<Intake />} />
             <Route path="/client" element={<Client />} />
+            <Route path="/client/:id" element={<ClientDetails />} />
             <Route path="/team" element={<Team />} />
             <Route path="/agenda" element={<Agenda />} />
             <Route path="/report" element={<Report />} />

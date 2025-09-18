@@ -30,6 +30,7 @@ const clients = [
     mobility: "Laying in bed",
     insurance: "SVB",
     details: "Welcome to Fundashon Transhende",
+    expiryDate: "09/25/25",
   },
   {
     id: 3,

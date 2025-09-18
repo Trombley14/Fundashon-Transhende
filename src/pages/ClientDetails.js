@@ -32,6 +32,7 @@ const clients = [
     mobility: "Laying in bed",
     insurance: "SVB",
     details: "Welcome to Fundashon Transhende",
+    expiryDate: "09/25/25",
   },
   {
     id: 3,
@@ -77,6 +78,18 @@ const clients = [
   },
 ];
 
+function daysUntil(dateString) {
+  if (!dateString) return null;
+  const today = new Date();
+  const expiry = new Date(dateString);
+
+  today.setHours(0, 0, 0, 0);
+  expiry.setHours(0, 0, 0, 0);
+
+  const diffTime = expiry - today;
+  return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+}
+
 export default function ClientDetails() {
   const { id } = useParams();
   const location = useLocation();
@@ -112,6 +125,18 @@ export default function ClientDetails() {
               <span className="meta__id">ID: {client.id}</span>
               <span className="dot" />
               <span className="badge badge--ok">Active</span>
+              {client.expiryDate && (
+                <p>
+                  Insurance valid: {client.expiryDate} (
+                  {() => {
+                    const days = daysUntil(client.expiryDate);
+                    return days > 0
+                      ? `${days} days left`
+                      : `Expired ${Math.abs(days)} days ago`;
+                  }}
+                  )
+                </p>
+              )}
             </div>
           </div>
 
@@ -171,6 +196,31 @@ export default function ClientDetails() {
                   <dd>{client.insurance}</dd>
                   <dt>Details</dt>
                   <dd>{client.details}</dd>
+                  <dt>Expiry Date</dt>
+                  <dd>
+                    {client.expiryDate ? (
+                      <>
+                        {client.expiryDate}{" "}
+                        <span
+                          className={
+                            daysUntil(client.expiryDate) > 0
+                              ? "valid"
+                              : "expired"
+                          }
+                        >
+                          (
+                          {daysUntil(client.expiryDate) > 0
+                            ? `${daysUntil(client.expiryDate)} days left`
+                            : `Expired ${Math.abs(
+                                daysUntil(client.expiryDate)
+                              )} days ago`}
+                          )
+                        </span>
+                      </>
+                    ) : (
+                      <span className="muted">Not provided</span>
+                    )}
+                  </dd>
                 </div>
               </dl>
             </article>

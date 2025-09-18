@@ -1,4 +1,30 @@
+import { useState } from "react";
+
 function ClientIntake() {
+  const [file, setFile] = useState(null);
+  const [preview, setPreview] = useState(null);
+
+  const handleFileChange = (e) => {
+    const uploadedFile = e.target.files[0];
+    setFile(uploadedFile);
+
+    // Create Preview
+    if (uploadedFile) {
+      const fileUrl = URL.createObjectURL(uploadedFile);
+      setPreview(fileUrl);
+    } else {
+      setFile(null);
+      setPreview(null);
+    }
+  };
+
+  // const handleRemoveFile = () => {
+  //   setFile(null);
+  //   setPreview(null);
+
+  //   document.getElementById("fileInput").value = "";
+  // };
+
   return (
     <>
       <div className="page-container">
@@ -48,6 +74,20 @@ function ClientIntake() {
           </div>
           <label htmlFor="id">ID:</label>
           <input type="number" id="id" name="id" required />
+
+          <label htmlFor="file">Upload file:</label>
+          <input
+            id="upload"
+            type="file"
+            onChange={handleFileChange}
+            accept="image/*,application/pdf"
+          />
+          {preview && (
+            <div>
+              <p>Preview:</p>
+              <img src={preview} alt="preview" width="200px" />
+            </div>
+          )}
 
           <label htmlFor="district">District:</label>
           <input type="text" id="district" name="district" required />

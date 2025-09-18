@@ -258,6 +258,12 @@ span {
   align-items: center;
 }
 
+/* File input */
+
+.file-input {
+  display: none;
+}
+
 /* Navigation Menu */
 
 .wrapper {

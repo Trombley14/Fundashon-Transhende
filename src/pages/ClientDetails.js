@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import "../styles/ClientDetails.css";
@@ -95,10 +96,26 @@ export default function ClientDetails() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const client =
+  const clientData =
     location.state?.client || clients.find((c) => c.id === Number(id));
 
-  if (!client) {
+  const [client, setClient] = useState(clientData);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value, files } = e.target;
+    setClient((prev) => ({
+      ...prev,
+      [name]: files ? files[0] : value,
+    }));
+  };
+
+  const handleSave = () => {
+    console.log("Saving client:", client);
+    setIsDrawerOpen(false);
+  };
+
+  if (!clientData) {
     return (
       <div>
         <Navbar />
@@ -120,16 +137,16 @@ export default function ClientDetails() {
             <button className="link link--back" onClick={() => navigate(-1)}>
               ← Back to Clients
             </button>
-            <h1>{client.name}</h1>
+            <h1>{clientData.name}</h1>
             <div className="meta">
-              <span className="meta__id">ID: {client.id}</span>
+              <span className="meta__id">ID: {clientData.id}</span>
               <span className="dot" />
               <span className="badge badge--ok">Active</span>
-              {client.expiryDate && (
+              {clientData.expiryDate && (
                 <p>
-                  Insurance valid: {client.expiryDate} (
+                  Insurance valid: {clientData.expiryDate} (
                   {() => {
-                    const days = daysUntil(client.expiryDate);
+                    const days = daysUntil(clientData.expiryDate);
                     return days > 0
                       ? `${days} days left`
                       : `Expired ${Math.abs(days)} days ago`;
@@ -141,7 +158,12 @@ export default function ClientDetails() {
           </div>
 
           <div className="client-page__actions">
-            <button className="btn btn--primary">Edit</button>
+            <button
+              className="btn btn--primary"
+              onClick={() => setIsDrawerOpen(true)}
+            >
+              Edit
+            </button>
             <button className="btn btn--outline">Export PDF</button>
             <button className="btn btn--danger">Deactivate</button>
           </div>
@@ -240,6 +262,99 @@ export default function ClientDetails() {
           <span className="muted">Last updated: 2 September 2025</span>
         </div>
       </div>
+
+      {/* Drawer */}
+      {isDrawerOpen && (
+        <div className="drawer-overlay">
+          <div className="drawer">
+            {/* Drawer Header */}
+            <div className="drawer__header">
+              <h2>Edit Client</h2>
+              <button
+                className="drawer__close"
+                onClick={() => setIsDrawerOpen(false)}
+              >
+                X
+              </button>
+            </div>
+
+            {/* Form */}
+            <div className="drawer__form">
+              <div className="form-group">
+                <label>Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  value={client.name}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="form-group">
+                <label>Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={client.email}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="form-group">
+                <label>Phone</label>
+                <input
+                  type="text"
+                  name="phone"
+                  value={client.phone}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="form-group">
+                <label>Insurance Expiry</label>
+                <input
+                  type="date"
+                  name="expiryDate"
+                  value={client.expiryDate || ""}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="form-group">
+                <label>Upload File</label>
+                <input type="file" name="document" onChange={handleChange} />
+                {client.document && (
+                  <div className="file-preview">
+                    <span>{client.document.name}</span>
+                    <button
+                      type="button"
+                      className="remove-file"
+                      onClick={() =>
+                        setClient((prev) => ({ ...prev, document: null }))
+                      }
+                    >
+                      Remove
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Drawer Actions */}
+            <div className="drawer__actions">
+              <button
+                className="btn btn--outline"
+                onClick={() => setIsDrawerOpen(false)}
+              >
+                Cancel
+              </button>
+              <button className="btn btn--primary" onClick={handleSave}>
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

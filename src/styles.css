@@ -264,6 +264,89 @@ span {
   display: none;
 }
 
+/* Drawer Feature */
+.drawer_overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: flex-end;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.drawer {
+  margin-left: 450px;
+  width: 400px;
+  background: #fff;
+  height: 100%;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.drawer_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.drawer_close {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.drawer-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.file-preview {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.file-preview span {
+  font-size: 0.9rem;
+}
+
+.remove-file {
+  background: none;
+  border: none;
+  color: red;
+  font-size: 0.9 rem;
+  cursor: pointer;
+}
+
+.drawer_actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
 /* Navigation Menu */
 
 .wrapper {

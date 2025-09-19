@@ -1,0 +1,224 @@
+:root {
+  /* match your app palette (based on your screenshots) */
+  --blue: #0d5db8;
+  --orange: #f57c00;
+  --bg: #f7f8fa;
+  --card: #fff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --radius: 14px;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 8px 18px rgba(0, 0, 0, 0.06);
+
+  --ok-bg: #e8f7ec;
+  --ok-fg: #1b5e20;
+  --ok-br: #c8ebd1;
+  --warn-bg: #fff7e6;
+  --warn-fg: #8a5200;
+  --warn-br: #ffe2b7;
+  --danger-bg: #fde8e8;
+  --danger-fg: #991b1b;
+  --danger-br: #f8caca;
+}
+
+.client-body {
+  padding: 12px 16px 24px;
+  color: var(--text);
+  background: transparent;
+  font: 14px/1.45 system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans",
+    sans-serif;
+}
+
+/* Cards */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.card + .card {
+  margin-top: 16px;
+}
+
+.card__hdr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+}
+.card__title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.card__right {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.card__body {
+  padding: 12px 14px;
+}
+
+.muted {
+  color: var(--muted);
+}
+.link {
+  color: var(--blue);
+  text-decoration: none;
+}
+.link:hover {
+  text-decoration: underline;
+}
+
+/* Contact block */
+.contact-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .contact-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.kv {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+.kv span {
+  color: var(--muted);
+}
+
+/* Main layout: two columns */
+.grid {
+  display: grid;
+  gap: 16px;
+  margin-top: 16px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 1100px) {
+  .grid {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+.stack {
+  display: grid;
+  gap: 16px;
+}
+
+/* Info grid inside cards */
+.info-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.info dt {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.info dd {
+  margin: 0.2rem 0 0;
+  font-weight: 600;
+}
+.info--full {
+  grid-column: 1 / -1;
+}
+
+/* Documents */
+.docs-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 700px) {
+  .docs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.doc-tile {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  background: #fff;
+}
+.doc-tile__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.doc-tile__kind {
+  font-weight: 700;
+}
+.doc-tile__rows .row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+}
+.doc-tile__rows .row span {
+  color: var(--muted);
+}
+
+.doc-tile__actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+/* Buttons */
+.btn {
+  appearance: none;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+.btn:hover {
+  box-shadow: var(--shadow);
+}
+.btn--outline {
+  background: transparent;
+}
+
+/* Badges (status) */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  border: 1px solid transparent;
+}
+.badge--ok {
+  background: var(--ok-bg);
+  color: var(--ok-fg);
+  border-color: var(--ok-br);
+}
+.badge--warn {
+  background: var(--warn-bg);
+  color: var(--warn-fg);
+  border-color: var(--warn-br);
+}
+.badge--danger {
+  background: var(--danger-bg);
+  color: var(--danger-fg);
+  border-color: var(--danger-br);
+}
+.badge--muted {
+  background: #f3f4f6;
+  color: var(--muted);
+  border-color: var(--border);
+}

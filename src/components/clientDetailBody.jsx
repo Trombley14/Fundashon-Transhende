@@ -106,7 +106,7 @@ export default function ClientDetailBody({
   onReuploadIdCard,
   onReuploadSvbCard,
 }) {
-  const phone1 = client?.phones?.[0];
+  const phone1 = client?.phone;
   const phone2 = client?.phones?.[1];
 
   return (
@@ -124,7 +124,7 @@ export default function ClientDetailBody({
           </div>
           <div className="kv">
             <span>Address</span>
-            <strong>{client?.address?.line || "-"}</strong>
+            <strong>{client?.address || "-"}</strong>
           </div>
         </div>
       </Card>
@@ -137,24 +137,28 @@ export default function ClientDetailBody({
               <InfoRow label="ID Number" value={client?.idNumber} />
               <InfoRow
                 label="Date of Birth"
-                value={client?.dob ? `${fmt(client.dob)}` : null}
+                value={
+                  client?.dateOfBirth ? `${fmt(client.dateOfBirth)}` : null
+                }
               />
               <InfoRow label="Gender" value={client?.gender} />
               <InfoRow label="Doctor" value={client?.doctor || "-"} />
               <InfoRow label="Mobility" value={client?.mobility} />
               <InfoRow label="Insurance" value={client?.insurance || "-"} />
               <InfoRow label="Details" value={client?.details} full />
-              {client?.expiry && (
+              {client?.expiryDate && (
                 <InfoRow
                   label="Expiry Date"
                   value={
                     <>
                       {fmt(client.expiry)}{" "}
                       <span
-                        className={`badge ${expiryBadge(client.expiry).cls}`}
+                        className={`badge ${
+                          expiryBadge(client.expiryDate).cls
+                        }`}
                         style={{ marginLeft: 6 }}
                       >
-                        {expiryBadge(client.expiry).text}
+                        {expiryBadge(client.expiryDate).text}
                       </span>
                     </>
                   }

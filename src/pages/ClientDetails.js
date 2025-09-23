@@ -145,14 +145,13 @@ export default function ClientDetails() {
               <span className="badge badge--ok">Active</span>
               {clientData.expiryDate && (
                 <p>
-                  Insurance valid: {clientData.expiryDate} (
+                  Insurance valid: {clientData.expiryDate}
                   {() => {
                     const days = daysUntil(clientData.expiryDate);
                     return days > 0
                       ? `${days} days left`
                       : `Expired ${Math.abs(days)} days ago`;
                   }}
-                  )
                 </p>
               )}
             </div>
@@ -169,7 +168,7 @@ export default function ClientDetails() {
             <button className="btn btn--danger">Deactivate</button>
           </div>
         </div>
-        <ClientDetailBody />
+        <ClientDetailBody client={client} />
       </div>
       <div className="footer">
         <span className="muted">Last updated: 2 September 2025</span>

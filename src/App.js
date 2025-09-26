@@ -7,6 +7,7 @@ import ClientDetails from "./pages/ClientDetails";
 import Team from "./pages/Team";
 import Agenda from "./pages/Agenda";
 import Report from "./pages/Report";
+import About from "./pages/About";
 // import Route from "./pages/Route";
 import NoPage from "./pages/NoPage";
 import { createContext } from "react";
@@ -34,6 +35,10 @@ function App() {
             <Route path="/team" element={<Team />} />
             <Route path="/agenda" element={<Agenda />} />
             <Route path="/report" element={<Report />} />
+            <Route
+              path="/about"
+              element={<About heroImage={"../public/img/hero.jpg"} />}
+            />
             {/* <Route path="/routes" element={<Routes />} /> */}
             <Route path="*" element={<NoPage />} />
           </Routes>

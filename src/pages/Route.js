@@ -1,4 +1,5 @@
 import Navbar from "../components/Navbar";
+import About from "./About";
 
 function Route() {
   return (

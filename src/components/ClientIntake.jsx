@@ -162,10 +162,10 @@ function ClientIntake() {
           <label htmlFor="mobility">Mobility:</label>
           <select id="mobility" name="mobility" required>
             <option value="">-- Please choose an option --</option>
-            <option value="laying-in-bed">Laying in bed</option>
+            <option value="laying in bed">Laying in bed</option>
             <option value="walking">Walking</option>
-            <option value="walking-badly">Walking badly</option>
-            <option value="mobility-aid">Mobility aid</option>
+            <option value="walking badly">Walking badly</option>
+            <option value="mobility aid">Mobility aid</option>
             <option value="wheelchair">Wheelchair</option>
           </select>
 
@@ -176,7 +176,7 @@ function ClientIntake() {
             <option value="bvz">BVZ</option>
             <option value="avbz">AVBZ</option>
             <option value="particulier">Particulier</option>
-            <option value="eigen-beheer">Eigen beheer</option>
+            <option value="eigen beheer">Eigen beheer</option>
           </select>
 
           <label htmlFor="expiry_date">Expiry date:</label>

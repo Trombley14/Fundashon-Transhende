@@ -4,6 +4,56 @@ function ClientIntake() {
   const [file, setFile] = useState(null);
   const [preview, setPreview] = useState(null);
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // collect data from the form
+    const form = e.target;
+    const clientData = {
+      firstName: form.first_name.value,
+      lastName: form.last_name.value,
+      dateOfBirth: form.date_of_birth.value,
+      gender: form.gender.value,
+      idNumber: form.id.value,
+      district: form.district.value,
+      address: form.Address.value,
+      phone1: form.telephone1.value,
+      phone2: form.telephone2.value,
+      doctor: form.doctor.value,
+      mobility: form.mobility.value,
+      insurance: form.insurance.value,
+      expiryDate: form.expiry_date.value,
+      startDate: form.start_date.value,
+      details: form.details.value,
+      contactPerson1: form.contact_person1.value,
+      contactPhone1: form.contact_person_telephone1.value,
+      contactPerson2: form.contact_person2.value,
+      contactPhone2: form.contact_person_telephone2.value,
+    };
+
+    try {
+      const res = await fetch("http://localhost:5000/api/clients", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(clientData),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        alert("Client saved successfully!");
+        console.log("Saved:", data);
+        form.reset();
+        setFile(null);
+        setPreview(null);
+      } else {
+        alert(data.message || "Failed to save client");
+      }
+    } catch (err) {
+      console.error("Error submitting form:", err);
+    }
+  };
+
   const handleFileChange = (e) => {
     const uploadedFile = e.target.files[0];
     setFile(uploadedFile);
@@ -28,7 +78,7 @@ function ClientIntake() {
   return (
     <>
       <div className="page-container">
-        <form className="intake-form">
+        <form className="intake-form" onSubmit={handleSubmit}>
           <h1>Client Intake</h1>
           <div className="input-row">
             <div className="input-group">
